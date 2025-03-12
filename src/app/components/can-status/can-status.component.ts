@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from "../../data.service";
 
 @Component({
   selector: 'app-can-status',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./can-status.component.scss'],
   standalone: false,
 })
-export class CanStatusComponent  implements OnInit {
+export class CanStatusComponent implements OnInit {
 
-  constructor() { }
+  myMsg!: any;
 
-  ngOnInit() {}
+  constructor(private serv: DataService) {
+  }
+
+  ngOnInit() {
+    this.serv.asObserver.subscribe(
+      (message) => {
+        this.myMsg = message
+      });
+  }
+
+  newMessage() {
+    this.serv.setMessage(this.myMsg);
+    console.log(this.myMsg);
+  }
 
 }
