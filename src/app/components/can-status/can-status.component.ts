@@ -15,15 +15,13 @@ export class CanStatusComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.serv.asObserver.subscribe(
-      (message) => {
-        this.myMsg = message
-      });
+    this.serv.getCsvData().subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
-
-  newMessage() {
-    this.serv.setMessage(this.myMsg);
-    console.log(this.myMsg);
-  }
-
 }
