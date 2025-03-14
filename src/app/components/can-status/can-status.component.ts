@@ -9,14 +9,12 @@ import {DataService} from "../../data.service";
 })
 export class CanStatusComponent implements OnInit {
 
-  data: any; // declare the data property here
+  data!: any;
 
-  constructor(private dataService: DataService) { }
+  constructor(private serv: DataService) {}
 
   ngOnInit() {
-    this.dataService.asObserver.subscribe(data => {
-      this.data = data;
-      console.log('Data:', this.data);
-    });
+    this.serv.readJsonData();
   }
+
 }
