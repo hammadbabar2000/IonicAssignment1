@@ -5,6 +5,7 @@ import {FormsModule} from "@angular/forms";
 import {UpdatesComponent} from "./updates/updates.component";
 import {CanStatusComponent} from "./can-status/can-status.component";
 import {OnStatusComponent} from "./on-status/on-status.component";
+import {DataService} from "../data.service";
 
 
 
@@ -13,8 +14,9 @@ import {OnStatusComponent} from "./on-status/on-status.component";
   imports: [
     CommonModule,
     IonicModule,
-    FormsModule
+    FormsModule,
   ],
-  exports:[UpdatesComponent,CanStatusComponent,OnStatusComponent]
+  exports:[UpdatesComponent,CanStatusComponent,OnStatusComponent],
+  providers: [DataService]
 })
 export class ComponentsModule { }

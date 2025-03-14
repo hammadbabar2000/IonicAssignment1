@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import { map, Observable} from "rxjs";
-import * as Papa from 'papaparse';
+import { Observer, BehaviorSubject } from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -8,21 +7,18 @@ import {HttpClient} from "@angular/common/http";
 })
 export class DataService {
 
+  private jsonDataUrl = new BehaviorSubject<any>(null);
+  public asObserver = this.jsonDataUrl.asObservable();
 
-  constructor(private http: HttpClient) { }
-
-  public getCsvData(): Observable<any> {
-    return this.http.get('assets/data/file.csv', { responseType: 'text' }).pipe(
-      map(data => {
-        let parsedData;
-        Papa.parse(data, {
-          header: true,
-          complete: (result) => {
-            parsedData = result.data;
-          }
-        });
-        return parsedData;
-      })
-    );
+  constructor(private http: HttpClient) {
+    this.http.get('src/assets/data/csvjson.json').subscribe(data => {
+      this.jsonDataUrl.next(data);
+    });
   }
+
+  setJsonData(data: any) {
+    this.jsonDataUrl.next(data);
+  }
+
+
 }
