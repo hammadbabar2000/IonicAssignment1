@@ -27,4 +27,6 @@ export class CanStatusComponent implements OnInit {
 
     });
   }
+
+  protected readonly Date = Date;
 }
