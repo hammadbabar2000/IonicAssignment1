@@ -1,18 +1,18 @@
 import {Injectable} from '@angular/core';
 import { BehaviorSubject } from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  data: any;
+  private data = new BehaviorSubject<any[]>([]);
+  data$ = this.data.asObservable();
 
-  readJsonData(){
-    fetch('src/assets/data/csvjson.json').then(res => res.json()).then(json => {
-      this.data = json;
-
-      console.log(json);
+  constructor(private http: HttpClient) {
+    this.http.get<any[]>('/assets/data/csvjson.json').subscribe(data => {
+      this.data.next(data);
     });
   }
 
