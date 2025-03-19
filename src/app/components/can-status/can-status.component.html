@@ -4,13 +4,9 @@
     <ion-card-title>Canada Status</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-
-    <div *ngFor="let item of filteredData">
       <h3>
-        Date:{{ item.date }}
+        Date: {{ filteredData[0]["date"] }}
       </h3>
-    </div>
-
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -19,21 +15,17 @@
               <h2>Total Cases:</h2>
             </ion-card-header>
             <ion-card-content>
-              <div *ngFor="let item of filteredData">
-                {{ item.totalcases }}
-              </div>
+                {{ filteredData[0]["totalcases"] }}
             </ion-card-content>
           </ion-card>
         </ion-col>
         <ion-col>
           <ion-card>
             <ion-card-header>
-              <h2>Total Cases:</h2>
+              <h2>Total Deaths:</h2>
             </ion-card-header>
             <ion-card-content>
-              <div *ngFor="let item of filteredData">
-                {{ item.totaldeaths }}
-              </div>
+                {{ filteredData[0]["numdeaths"] }}
             </ion-card-content>
           </ion-card>
         </ion-col>

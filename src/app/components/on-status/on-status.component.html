@@ -1,3 +1,80 @@
-<p>
-  on-status works!
-</p>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Ontario Status</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+
+ <ion-grid>
+   <ion-row>
+     <ion-col>
+       <ion-card>
+         <ion-card-header>
+           <h2>Total Cases:</h2>
+         </ion-card-header>
+         <ion-card-content>
+             {{ filteredData[0]["Total Cases"] }}
+         </ion-card-content>
+       </ion-card>
+     </ion-col>
+     <ion-col>
+       <ion-card>
+         <ion-card-header>
+           <h2> Resolved Cases: </h2>
+         </ion-card-header>
+         <ion-card-content>
+             {{ filteredData[0]["Resolved"] }}
+         </ion-card-content>
+       </ion-card>
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col>
+       <ion-card>
+         <ion-card-header>
+           <h2>New Deaths:</h2>
+         </ion-card-header>
+         <ion-card-content>
+             {{ filteredData[0]["Deaths"] }}
+         </ion-card-content>
+       </ion-card>
+     </ion-col>
+     <ion-col>
+       <ion-card>
+         <ion-card-header>
+           <h2>Total Hospitalized:</h2>
+         </ion-card-header>
+         <ion-card-content>
+             {{ filteredData[0]["Number of patients hospitalized with COVID-19"] }}
+         </ion-card-content>
+       </ion-card>
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col>
+       <ion-card>
+         <ion-card-header>
+           <h2>Total In ICU Cases:</h2>
+         </ion-card-header>
+         <ion-card-content>
+             {{ filteredData[0]["Number of patients in ICU due to COVID-19"] }}
+         </ion-card-content>
+       </ion-card>
+     </ion-col>
+     <ion-col>
+       <ion-card>
+         <ion-card-header>
+           <h2> ICU and Ventilator:</h2>
+         </ion-card-header>
+         <ion-card-content>
+             {{ filteredData[0]["Number of patients in ICU on a ventilator due to COVID-19"] }}
+         </ion-card-content>
+       </ion-card>
+     </ion-col>
+   </ion-row>
+ </ion-grid>
+  </ion-card-content>
+</ion-card>
+<br>
+<br>
+<br>
+
