@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button>
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-on-status></app-on-status>
+
+  <ion-card>
+    <ion-card-content>
+        {{ notes}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Reported Date {{ date | date: "yyyy-MM-dd"}}</ion-card-title>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            Confirmed Positive:
+        </ion-col>
+        <ion-col>
+          {{ filteredData[0]?.["Confirmed Positive"] }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+            Total patients approved for testing as of Reporting Date
+          </ion-col>
+          <ion-col>
+            {{ filteredData[0]?.["Total patients approved for testing as of Reporting Date"] }}
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+            Total tests completed in the last day
+          </ion-col>
+          <ion-col>
+            {{ filteredData[0]?.["Total tests completed in the last day"] }}
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+            Under Investigation
+          </ion-col>
+          <ion-col>
+            {{ filteredData[0]?.["Under Investigation"] }}
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

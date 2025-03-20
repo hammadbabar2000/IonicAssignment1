@@ -5,7 +5,7 @@
   </ion-card-header>
   <ion-card-content>
       <h3>
-        Date: {{ filteredData[0]["date"] }}
+        Date: {{ filteredData[0]?.date  }}
       </h3>
     <ion-grid>
       <ion-row>
@@ -15,7 +15,7 @@
               <h2>Total Cases:</h2>
             </ion-card-header>
             <ion-card-content>
-                {{ filteredData[0]["totalcases"] }}
+                {{ filteredData[0]?.totalcases }}
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -25,7 +25,7 @@
               <h2>Total Deaths:</h2>
             </ion-card-header>
             <ion-card-content>
-                {{ filteredData[0]["numdeaths"] }}
+                {{ filteredData[0]?.numdeaths }}
             </ion-card-content>
           </ion-card>
         </ion-col>
